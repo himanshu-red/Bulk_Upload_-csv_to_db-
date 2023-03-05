@@ -31,7 +31,7 @@ public class FileUploadUtils {
             fileName = fileName.substring(0, fileName.indexOf("."));
             try(InputStream inputStream = file.getInputStream()){
                 Files.copy(inputStream, fileStorageLocation.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
-                return Pair.of(true, "File Uploaded");
+                return Pair.of(true, fileName);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
